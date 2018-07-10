@@ -26,10 +26,10 @@ RUN cd /opt/android-sdk-linux && \
     unzip sdk-platform-tools.zip && \
     rm -f sdk-platform-tools.zip
 
-RUN wget -q --output-document=android-ndk.zip https://dl.google.com/android/repository/android-ndk-r15c-linux-x86_64.zip && \
+RUN wget -q --output-document=android-ndk.zip http://dl.google.com/android/repository/android-ndk-r10e-linux-x86_64.zip && \
 	unzip android-ndk.zip && \
 	rm -f android-ndk.zip && \
-	mv android-ndk-r15c android-ndk-linux
+	mv android-ndk-r10e android-ndk-linux
 
 RUN yes | sdkmanager --licenses
 
@@ -77,6 +77,8 @@ ADD .env.jenkins .env
 
 ADD ./project.clj ./
 
+ADD ./.git ./.git
+
 RUN lein deps
 
 ADD ./package.json package-lock.json ./
@@ -94,6 +96,17 @@ RUN keytool -genkey -v -keystore status-im.keystore -storepass password -alias s
 RUN mkdir -p /root/.gradle
 RUN mv status-im.keystore /root/.gradle/
 
-RUN ./android/gradlew --parallel -q -b android/build.gradle assembleRelease
+RUN echo "sdk.dir=/opt/android-sdk-linux" >> android/local.properties
+RUN echo "ndk.dir=/opt/android-ndk-linux" >> android/local.properties
+
+RUN ./re-natal enable-source-maps
+RUN ./re-natal use-android-device avd
+RUN ./re-natal use-figwheel
+RUN lein re-frisk use-re-natal
+RUN ./scripts/build_no.sh
+RUN make run-android
+RUN react-native start
+
+# RUN ./android/gradlew --debug --parallel -q -b android/build.gradle assembleRelease
 
 CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]
