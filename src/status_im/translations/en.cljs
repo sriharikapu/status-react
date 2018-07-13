@@ -682,6 +682,8 @@
    :network-id                           "Network ID"
    :specify-network-id                   "Specify network id"
 
+   :extensions                           "Extensions"
+
    ;; invalid-key
 
    :invalid-key-title                    "We detected a problem with the encryption key"

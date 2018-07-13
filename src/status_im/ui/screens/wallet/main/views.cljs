@@ -11,6 +11,7 @@
             [status-im.ui.screens.wallet.styles :as wallet.styles]
             [status-im.ui.screens.wallet.main.styles :as styles]
             [status-im.ui.screens.wallet.utils :as wallet.utils]
+            [status-im.extensions.registry :as registry]
             [status-im.utils.money :as money]
             [status-im.ui.components.toolbar.actions :as action]
             status-im.ui.screens.wallet.collectibles.etheremon.views

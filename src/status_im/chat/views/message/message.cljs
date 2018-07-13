@@ -236,10 +236,13 @@
 
 (defmethod message-content :default
   [wrapper {:keys [content-type content] :as message}]
+
   [wrapper message
-   [message-view message
-    [message-content-audio {:content      content
-                            :content-type content-type}]]])
+   [message-view message [message-content-command message]]]
+  #_[wrapper message
+     [message-view message
+      [message-content-audio {:content      content
+                              :content-type content-type}]]])
 
 (defn- text-status [status]
   [react/view style/delivery-view
