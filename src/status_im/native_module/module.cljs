@@ -6,6 +6,7 @@
   (-start-node [this config])
   (-stop-node [this])
   (-create-account [this password callback])
+  (-create-x3dh-bundle  [this callback])
   (-recover-account [this passphrase password callback])
   (-login [this address password callback])
   (-approve-sign-request [this id password callback])

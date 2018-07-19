@@ -34,6 +34,9 @@
 (defn create-account [password callback]
   (module-interface/-create-account rns-module password callback))
 
+(defn create-x3dh-bundle [callback]
+  (module-interface/-create-x3dh-bundle rns-module callback))
+
 (defn recover-account [passphrase password callback]
   (module-interface/-recover-account rns-module passphrase password callback))
 
