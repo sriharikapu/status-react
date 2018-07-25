@@ -40,7 +40,7 @@ timeout(90) {
         }
 
         stage('Build (Android)') {
-          sh 'node_modules/react-native/local-cli/cli.js bundle --platform android --dev false --entry-file index.android.js --bundle-output android/app/build/intermediates/assets/debug/index.android.bundle --assets-dest android/app/build/intermediates/res/merged/debug/'
+          sh 'react-native bundle --platform android --dev false --entry-file index.android.js --bundle-output android/app/build/intermediates/assets/debug/index.android.bundle --assets-dest android/app/build/intermediates/res/merged/debug/'
           sh 'cd android && ./gradlew react-native-android:installArchives && ./gradlew assembleRelease -x bundleReleaseJsAndAssets'
         }
 
