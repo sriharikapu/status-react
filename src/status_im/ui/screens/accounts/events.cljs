@@ -160,6 +160,14 @@
        (not (:in-progress? transaction))
        (:from-chat? transaction)))
 
+(handlers/register-handler-fx
+ :enable-notifications
+ (fn [{db :db} [_ desktop-notifications?]]
+   {:db (assoc-in db
+                  [:account/account :desktop-notifications?]
+                  desktop-notifications?)}))
+
+
 (defn wallet-set-up-passed [db modal? cofx]
   (let [transaction (get-in db [:wallet :send-transaction])]
     (cond modal? {:dispatch [:navigate-to-modal :wallet-send-transaction-modal]}
