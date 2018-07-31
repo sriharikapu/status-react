@@ -65,7 +65,7 @@
 
 (views/defview profile [user]
   (letsubs [current-account [:get-current-account]]
-    (let [notifications? (get-in current-account [:settings :desktop-notifications?])]
+    (let [notifications? (get-in current-account [:desktop-notifications?])]
       [react/view styles/profile-view
        [profile-badge user]
        [share-contact-code]

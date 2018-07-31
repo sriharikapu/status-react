@@ -73,6 +73,7 @@
                              :name           (generate-gfy pubkey)
                              :status         status
                              :signed-up?     true
+                             :desktop-notifications? false
                              :photo-path     (identicon pubkey)
                              :signing-phrase signing-phrase
                              :mnemonic       mnemonic

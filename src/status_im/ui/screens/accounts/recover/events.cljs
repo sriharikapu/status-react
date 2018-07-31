@@ -40,16 +40,17 @@
          public-key (:pubkey data)
          address    (-> data :address utils.hex/normalize-hex)
          phrase     (signing-phrase/generate)
-         account    {:public-key            public-key
-                     :address               address
-                     :name                  (gfycat/generate-gfy public-key)
-                     :photo-path            (identicon/identicon public-key)
-                     :mnemonic              ""
-                     :signed-up?            true
-                     :signing-phrase        phrase
-                     :settings              (constants/default-account-settings)
-                     :wallet-set-up-passed? false
-                     :seed-backed-up?       true}]
+         account    {:public-key             public-key
+                     :address                address
+                     :name                   (gfycat/generate-gfy public-key)
+                     :photo-path             (identicon/identicon public-key)
+                     :mnemonic               ""
+                     :signed-up?             true
+                     :desktop-notifications? false
+                     :signing-phrase         phrase
+                     :settings               (constants/default-account-settings)
+                     :wallet-set-up-passed?  false
+                     :seed-backed-up?        true}]
      (when-not (string/blank? public-key)
        (-> db
            (accounts-events/add-account account)
