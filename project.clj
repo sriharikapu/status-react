@@ -11,7 +11,7 @@
                  [com.taoensso/timbre "4.10.0"]
                  [hickory "0.7.1"]
                  [com.cognitect/transit-cljs "0.8.248"]
-                 [pluto "iteration-2-SNAPSHOT"]]
+                 [status-im/pluto "iteration-2-SNAPSHOT"]]
   :plugins [[lein-cljsbuild "1.1.7"]
             [lein-re-frisk "0.5.8"]
             [lein-cljfmt "0.5.7"]
