@@ -64,7 +64,7 @@
    :home                                 "Home"
    :no-recent-chats                      "There are no recent Chats or DApps here yet. Tap the “Plus” button to see the list of Dapps or discover people to chat with."
    :welcome-to-status                    "Welcome to Status"
-   :welcome-to-status-description        "Tap the plus (+) button to open a DApp or start a secure chat"
+   :welcome-to-status-description        "Tap the plus (+) button to get started"
 
    ;;chat
    :is-typing                            "is typing"
@@ -602,7 +602,7 @@
    :wallet-browse-photos                 "Browse Photos"
    :wallet-advanced                      "Advanced"
    :wallet-transaction-fee               "Transaction Fee"
-   :wallet-transaction-fee-details       "Gas limit is the maximum units of gas you’re willing to spend on this transaction.\n\nGas price is the amount you’re willing to pay per unit of gas. Increasing gas price can help your transaction get processed faster."
+   :wallet-transaction-fee-details       "Gas limit caps the units of gas spent on the transaction. Gas price sets the price per unit of gas. Increasing gas price can make your transaction faster."
    :wallet-transaction-total-fee         "Total Fee"
    :validation-amount-invalid-number     "Amount is not a valid number"
    :validation-amount-is-too-precise     "Amount is too precise. Max number of decimals is {{decimals}}."
